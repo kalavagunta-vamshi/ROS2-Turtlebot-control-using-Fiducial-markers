@@ -1,0 +1,132 @@
+The {\ttfamily nav2\+\_\+bringup} package is an example bringup system for Nav2 applications.\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{Pre-\/requisites\+:}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item \href{https://index.ros.org/doc/ros2/Installation/Dashing/}{\texttt{ Install R\+OS 2}}
+\item Install Nav2
+
+{\ttfamily sudo apt install ros-\/$<$ros2\+\_\+distro$>$-\/navigation2}
+\item Install Nav2 Bringup
+
+{\ttfamily sudo apt install ros-\/$<$ros2\+\_\+distro$>$-\/nav2-\/bringup}
+\item Install your robot specific package (ex\+:\href{http://emanual.robotis.com/docs/en/platform/turtlebot3/ros2/}{\texttt{ Turtlebot 3}})
+\end{DoxyItemize}\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md5}{}\doxysection{Launch Nav2 in $<$em$>$\+Simulation$<$/em$>$ with Gazebo}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md5}
+\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{Pre-\/requisites\+:}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item \href{http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install}{\texttt{ Install Gazebo}}
+\item gazebo\+\_\+ros\+\_\+pkgs for R\+O\+S2 installed on the system
+
+{\ttfamily sudo apt-\/get install ros-\/$<$ros2-\/distro$>$-\/gazebo$\ast$}
+\item A Gazebo world for simulating the robot (\href{http://gazebosim.org/tutorials?tut=quick_start}{\texttt{ Gazebo tutorials}})
+\item A map of that world saved to a map.\+pgm and map.\+yaml (\href{https://github.com/ros-planning/navigation2/tree/main/doc/use_cases}{\texttt{ R\+OS Navigation Tutorials}})
+\end{DoxyItemize}\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{Terminal 1\+: Launch Gazebo}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md7}
+Example\+: See \href{https://github.com/ROBOTIS-GIT/turtlebot3_simulations/tree/ros2/turtlebot3_gazebo/models}{\texttt{ turtlebot3\+\_\+gazebo models}} for details
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export GAZEBO\_MODEL\_PATH=\$GAZEBO\_MODEL\_PATH:<full/path/to/my\_robot/models>}
+\DoxyCodeLine{gazebo -\/-\/verbose -\/s libgazebo\_ros\_init.so <full/path/to/my\_gazebo.world>}
+\end{DoxyCode}
+\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{Terminal 2\+: Launch your robot specific transforms}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md8}
+Example\+: See \href{https://github.com/ROBOTIS-GIT/turtlebot3_simulations/tree/ros2/turtlebot3_gazebo}{\texttt{ turtlebot3\+\_\+gazebo}} for details
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/ros/dashing/setup.bash}
+\DoxyCodeLine{export TURTLEBOT3\_MODEL=waffle}
+\DoxyCodeLine{ros2 launch turtlebot3\_bringup turtlebot3\_state\_publisher.launch.py use\_sim\_time:=True}
+\end{DoxyCode}
+\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{Terminal 3\+: Launch Nav2}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md9}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/ros/dashing/setup.bash}
+\DoxyCodeLine{ros2 launch nav2\_bringup bringup\_launch.py use\_sim\_time:=True autostart:=True \(\backslash\)}
+\DoxyCodeLine{map:=<full/path/to/map.yaml>}
+\end{DoxyCode}
+\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{Terminal 4\+: Run R\+Viz with Nav2 config file}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md10}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/ros/dashing/setup.bash}
+\DoxyCodeLine{ros2 run rviz2 rviz2 -\/d \$(ros2 pkg prefix nav2\_bringup)/share/nav2\_bringup/launch/nav2\_default\_view.rviz}
+\end{DoxyCode}
+
+
+In R\+Viz\+:
+\begin{DoxyItemize}
+\item You should see the map
+\item Localize the robot using “2D Pose Estimate” button.
+\item Make sure all transforms from odom are present. (odom-\/$>$base\+\_\+link-\/$>$base\+\_\+scan)
+\item Send the robot a goal using "Nav2 Goal” button. Note\+: this uses a R\+O\+S2 Action to send the goal, and a pop-\/up window will appear on your screen with a \textquotesingle{}cancel\textquotesingle{} button if you wish to cancel
+\end{DoxyItemize}
+
+To view the robot model in R\+Viz\+:
+\begin{DoxyItemize}
+\item Add \char`\"{}\+Robot\+Model\char`\"{}, set \char`\"{}\+Description Source\char`\"{} with \char`\"{}\+File\char`\"{}, set \char`\"{}\+Description File\char`\"{} with the name of the urdf file for your robot (example\+: turtlebot3\+\_\+burger.\+urdf)"
+\end{DoxyItemize}\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md11}{}\doxysubsection{Advanced\+: single-\/terminal launch}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md11}
+A convenience file is provided to launch Gazebo, R\+V\+IZ and Nav2 using a single command\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ros2 launch nav2\_bringup tb3\_simulation\_launch.py <settings>}
+\end{DoxyCode}
+
+
+Where {\ttfamily $<$settings$>$} can used to replace any of the default options, for example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{world:=<full/path/to/gazebo.world>}
+\DoxyCodeLine{map:=<full/path/to/map.yaml>}
+\DoxyCodeLine{rviz\_config\_file:=<full/path/to/rviz\_config.rviz>}
+\DoxyCodeLine{simulator:=<gzserver or gazebo>}
+\DoxyCodeLine{bt\_xml\_file:=<full/path/to/bt\_tree.xml>}
+\end{DoxyCode}
+
+
+Before running the command make sure you are sourcing the {\ttfamily R\+O\+S2} workspace, setting the path to the Gazebo model and defining the T\+B3 robot model to use.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source <full/path/to/ros2/setup.bash>}
+\DoxyCodeLine{export GAZEBO\_MODEL\_PATH=\$GAZEBO\_MODEL\_PATH:<full/path/to/my\_robot/models>}
+\DoxyCodeLine{export TURTLEBOT3\_MODEL=waffle}
+\end{DoxyCode}
+
+
+Also, a file for launching {\bfseries{two}} robots with {\bfseries{independent}} navigation stacks is provided\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ros2 launch nav2\_bringup multi\_tb3\_simulation\_launch.py <settings>}
+\end{DoxyCode}
+\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md12}{}\doxysection{Launch Nav2 on a $<$em$>$\+Robot$<$/em$>$}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md12}
+\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md13}{}\doxysubsection{Pre-\/requisites\+:}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md13}
+
+\begin{DoxyItemize}
+\item Run S\+L\+AM with Navigation 2 or tele-\/op to drive the robot and generate a map of an area for testing first. The directions below assume this has already been done or there is already a map of the area.
+\item Learn more about how to use Navigation 2 with S\+L\+AM to create maps;
+\begin{DoxyItemize}
+\item \href{https://github.com/ros-planning/navigation2/blob/main/doc/use_cases/navigation_with_slam.md}{\texttt{ Navigation 2 with S\+L\+AM}}
+\end{DoxyItemize}
+\item {\itshape Please note that currently, nav2\+\_\+bringup works if you provide a map file. However, providing a map is not required to use Nav2. Nav2 can be configured to use the costmaps to navigate in an area without using a map file}
+\item Publish all the transforms from your robot from base\+\_\+link to base\+\_\+scan
+\end{DoxyItemize}\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md14}{}\doxysubsection{Terminal 1 \+: Launch Nav2 using your map.\+yaml}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md14}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/ros/dashing/setup.bash}
+\DoxyCodeLine{ros2 launch nav2\_bringup bringup\_launch.py map:=<full/path/to/map.yaml> map\_type:=occupancy}
+\end{DoxyCode}
+\hypertarget{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md15}{}\doxysubsection{Terminal 2 \+: Launch R\+V\+IZ}\label{md_tb3_bringup_bringup__r_e_a_d_m_e_autotoc_md15}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/ros/dashing/setup.bash}
+\DoxyCodeLine{ros2 run rviz2 rviz2 -\/d \$(ros2 pkg prefix nav2\_bringup)/share/nav2\_bringup/launch/nav2\_default\_view.rviz}
+\end{DoxyCode}
+
+
+In R\+V\+IZ\+:
+\begin{DoxyItemize}
+\item Make sure all transforms from odom are present. (odom-\/$>$base\+\_\+link-\/$>$base\+\_\+scan)
+\item Localize the robot using “2D Pose Estimate” button.
+\item Send the robot a goal pose using “2D Nav Goal” button. 
+\end{DoxyItemize}

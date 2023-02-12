@@ -1,0 +1,61 @@
+\hypertarget{class_target_reacher}{}\doxysection{Target\+Reacher Class Reference}
+\label{class_target_reacher}\index{TargetReacher@{TargetReacher}}
+
+
+Inheritance diagram for Target\+Reacher\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_target_reacher__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Target\+Reacher\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_target_reacher__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_target_reacher_aee66025ee0e4e97444481d0f95ecf3f1}{Target\+Reacher}} (std\+::shared\+\_\+ptr$<$ Bot\+Controller $>$ const \&bot\+\_\+controller)
+\begin{DoxyCompactList}\small\item\em Construct a new Target Reacher object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_target_reacher_aee66025ee0e4e97444481d0f95ecf3f1}\label{class_target_reacher_aee66025ee0e4e97444481d0f95ecf3f1}} 
+\index{TargetReacher@{TargetReacher}!TargetReacher@{TargetReacher}}
+\index{TargetReacher@{TargetReacher}!TargetReacher@{TargetReacher}}
+\doxysubsubsection{\texorpdfstring{TargetReacher()}{TargetReacher()}}
+{\footnotesize\ttfamily Target\+Reacher\+::\+Target\+Reacher (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Bot\+Controller $>$ const \&}]{bot\+\_\+controller }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Target Reacher object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bot\+\_\+controller} & \\
+\hline
+\end{DoxyParams}
+Assignment of bot\+\_\+controller to m\+\_\+bot\+\_\+controller. Declaration of all parameters from final parms.\+yaml
+
+A Subscription object to subscribe goal reached topic and executes callback method when message is published on the topic. Method reached callback to check whether goal reached topic is true.
+
+Publisher node object creation to publish rotation commands for robot once goal reached.
+
+A Subscription object to subscribe to aruco markers to get the marker id when robot scans after reaching the goal
+
+A Broadcaster object created to link the transform between final destination and origin frames
+
+A Listener Object created to listen to odom topic with a buffer between listening.
+
+Robot stop counter which will stop the robot after the goal reaches the final goal
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/target\+\_\+reacher/\mbox{\hyperlink{target__reacher_8h}{target\+\_\+reacher.\+h}}\item 
+src/target\+\_\+reacher.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\hypertarget{classfinal__plugins_1_1_disable_shadows_plugin}{}\doxysection{final\+\_\+plugins\+::Disable\+Shadows\+Plugin Class Reference}
+\label{classfinal__plugins_1_1_disable_shadows_plugin}\index{final\_plugins::DisableShadowsPlugin@{final\_plugins::DisableShadowsPlugin}}
+
+
+{\ttfamily \#include $<$disable\+\_\+shadows\+\_\+plugin.\+hpp$>$}
+
+
+
+Inheritance diagram for final\+\_\+plugins\+::Disable\+Shadows\+Plugin\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classfinal__plugins_1_1_disable_shadows_plugin__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for final\+\_\+plugins\+::Disable\+Shadows\+Plugin\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classfinal__plugins_1_1_disable_shadows_plugin__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classfinal__plugins_1_1_disable_shadows_plugin_adfc8b512b92a0bab402c1731a5c509fd}\label{classfinal__plugins_1_1_disable_shadows_plugin_adfc8b512b92a0bab402c1731a5c509fd}} 
+\mbox{\hyperlink{classfinal__plugins_1_1_disable_shadows_plugin_adfc8b512b92a0bab402c1731a5c509fd}{Disable\+Shadows\+Plugin}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classfinal__plugins_1_1_disable_shadows_plugin_a4b35cf2511084fdba6dfd103869b133d}\label{classfinal__plugins_1_1_disable_shadows_plugin_a4b35cf2511084fdba6dfd103869b133d}} 
+virtual \mbox{\hyperlink{classfinal__plugins_1_1_disable_shadows_plugin_a4b35cf2511084fdba6dfd103869b133d}{$\sim$\+Disable\+Shadows\+Plugin}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfinal__plugins_1_1_disable_shadows_plugin_a9e16b42b746db4d6c79bb1c1ce03939a}{Load}} (gazebo\+::rendering\+::\+Visual\+Ptr visual, sdf\+::\+Element\+Ptr sdf) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classfinal__plugins_1_1_disable_shadows_plugin_abb0d8a239d1038a97c7fa849a2ad54be}\label{classfinal__plugins_1_1_disable_shadows_plugin_abb0d8a239d1038a97c7fa849a2ad54be}} 
+virtual void \mbox{\hyperlink{classfinal__plugins_1_1_disable_shadows_plugin_abb0d8a239d1038a97c7fa849a2ad54be}{On\+Update}} ()
+\begin{DoxyCompactList}\small\item\em Optional callback to be called at every simulation iteration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Example R\+O\+S-\/powered Gazebo plugin with some useful boilerplate.
+
+This is a {\ttfamily Model\+Plugin}, but it could be any supported Gazebo plugin type, such as System, Visual, G\+UI, World, Sensor, etc. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfinal__plugins_1_1_disable_shadows_plugin_a9e16b42b746db4d6c79bb1c1ce03939a}\label{classfinal__plugins_1_1_disable_shadows_plugin_a9e16b42b746db4d6c79bb1c1ce03939a}} 
+\index{final\_plugins::DisableShadowsPlugin@{final\_plugins::DisableShadowsPlugin}!Load@{Load}}
+\index{Load@{Load}!final\_plugins::DisableShadowsPlugin@{final\_plugins::DisableShadowsPlugin}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void final\+\_\+plugins\+::\+Disable\+Shadows\+Plugin\+::\+Load (\begin{DoxyParamCaption}\item[{gazebo\+::rendering\+::\+Visual\+Ptr}]{visual,  }\item[{sdf\+::\+Element\+Ptr}]{sdf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+Gazebo calls this when the plugin is loaded. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em visual} & Pointer to parent model. Other plugin types will expose different entities, such as {\ttfamily gazebo\+::sensors\+::\+Sensor\+Ptr}, {\ttfamily gazebo\+::physics\+::\+World\+Ptr}, {\ttfamily gazebo\+::rendering\+::\+Visual\+Ptr}, etc. \\
+\hline
+\mbox{\texttt{ in}}  & {\em sdf} & S\+DF element containing user-\/defined parameters. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+final\+\_\+plugins/include/final\+\_\+plugins/disable\+\_\+shadows\+\_\+plugin.\+hpp\item 
+final\+\_\+plugins/src/disable\+\_\+shadows\+\_\+plugin.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,57 @@
+R\+O\+S2 Wrapper for Open\+CV Aruco Marker Tracking
+
+This package depends on a recent version of Open\+CV python bindings\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pip install opencv-\/contrib-\/python \# or pip3}
+\end{DoxyCode}
+\hypertarget{md_ros2_aruco__r_e_a_d_m_e_autotoc_md1}{}\doxysection{R\+O\+S2 A\+P\+I for the ros2\+\_\+aruco Node}\label{md_ros2_aruco__r_e_a_d_m_e_autotoc_md1}
+This node locates Aruco AR markers in images and publishes their ids and poses.
+
+Subscriptions\+:
+\begin{DoxyItemize}
+\item {\ttfamily /camera/image\+\_\+raw} ({\ttfamily sensor\+\_\+msgs.\+msg.\+Image})
+\item {\ttfamily /camera/camera\+\_\+info} ({\ttfamily sensor\+\_\+msgs.\+msg.\+Camera\+Info})
+\end{DoxyItemize}
+
+Published Topics\+:
+\begin{DoxyItemize}
+\item {\ttfamily /aruco\+\_\+poses} ({\ttfamily geometry\+\_\+msgs.\+msg.\+Pose\+Array}) -\/ Poses of all detected markers (suitable for rviz visualization)
+\item {\ttfamily /aruco\+\_\+markers} ({\ttfamily ros2\+\_\+aruco\+\_\+interfaces.\+msg.\+Aruco\+Markers}) -\/ Provides an array of all poses along with the corresponding marker ids
+\end{DoxyItemize}
+
+Parameters\+:
+\begin{DoxyItemize}
+\item {\ttfamily marker\+\_\+size} -\/ size of the markers in meters (default .0625)
+\item {\ttfamily aruco\+\_\+dictionary\+\_\+id} -\/ dictionary that was used to generate markers (default {\ttfamily D\+I\+C\+T\+\_\+5\+X5\+\_\+250})
+\item {\ttfamily image\+\_\+topic} -\/ image topic to subscribe to (default {\ttfamily /camera/image\+\_\+raw})
+\item {\ttfamily camera\+\_\+info\+\_\+topic} -\/ Camera info topic to subscribe to (default {\ttfamily /camera/camera\+\_\+info})
+\item {\ttfamily camera\+\_\+frame} -\/ Camera optical frame to use (default to the frame id provided by the camera info message.)
+\end{DoxyItemize}\hypertarget{md_ros2_aruco__r_e_a_d_m_e_autotoc_md2}{}\doxysection{Generating Marker Images}\label{md_ros2_aruco__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ros2 run ros2\_aruco aruco\_generate\_marker}
+\end{DoxyCode}
+
+
+Pass the {\ttfamily -\/h} flag for usage information\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{usage: aruco\_generate\_marker [-\/h] [-\/-\/id ID] [-\/-\/size SIZE] [-\/-\/dictionary]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Generate a .png image of a specified maker.}
+\DoxyCodeLine{}
+\DoxyCodeLine{optional arguments:}
+\DoxyCodeLine{  -\/h, -\/-\/help     show this help message and exit}
+\DoxyCodeLine{  -\/-\/id ID        Marker id to generate (default: 1)}
+\DoxyCodeLine{  -\/-\/size SIZE    Side length in pixels (default: 200)}
+\DoxyCodeLine{  -\/-\/dictionary   Dictionary to use. Valid options include: DICT\_4X4\_100,}
+\DoxyCodeLine{                 DICT\_4X4\_1000, DICT\_4X4\_250, DICT\_4X4\_50, DICT\_5X5\_100,}
+\DoxyCodeLine{                 DICT\_5X5\_1000, DICT\_5X5\_250, DICT\_5X5\_50, DICT\_6X6\_100,}
+\DoxyCodeLine{                 DICT\_6X6\_1000, DICT\_6X6\_250, DICT\_6X6\_50, DICT\_7X7\_100,}
+\DoxyCodeLine{                 DICT\_7X7\_1000, DICT\_7X7\_250, DICT\_7X7\_50, DICT\_ARUCO\_ORIGINAL}
+\DoxyCodeLine{                 (default: DICT\_5X5\_250)}
+\end{DoxyCode}
+ 

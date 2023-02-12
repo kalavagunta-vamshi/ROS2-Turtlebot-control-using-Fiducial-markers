@@ -1,0 +1,145 @@
+\hypertarget{classros2__aruco_1_1transformations_1_1_arcball}{}\doxysection{ros2\+\_\+aruco.\+transformations.\+Arcball Class Reference}
+\label{classros2__aruco_1_1transformations_1_1_arcball}\index{ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}}
+
+
+Inheritance diagram for ros2\+\_\+aruco.\+transformations.\+Arcball\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classros2__aruco_1_1transformations_1_1_arcball__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for ros2\+\_\+aruco.\+transformations.\+Arcball\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classros2__aruco_1_1transformations_1_1_arcball__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classros2__aruco_1_1transformations_1_1_arcball_ae7ef17f04bb29b1679506d9a1a05c93b}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, initial=None)
+\item 
+def \mbox{\hyperlink{classros2__aruco_1_1transformations_1_1_arcball_aba3a7dfdbfeb04c63e82c8fb4f415c7b}{place}} (self, center, radius)
+\item 
+def \mbox{\hyperlink{classros2__aruco_1_1transformations_1_1_arcball_a3e4e17a02dbe30e1d903232e269bb772}{setaxes}} (self, $\ast$axes)
+\item 
+def \mbox{\hyperlink{classros2__aruco_1_1transformations_1_1_arcball_a6b04e1f90a7f05fdfe57becef71def53}{setconstrain}} (self, constrain)
+\item 
+def \mbox{\hyperlink{classros2__aruco_1_1transformations_1_1_arcball_afea9bf151a6a88ee2fbf05d9a267ea75}{getconstrain}} (self)
+\item 
+def \mbox{\hyperlink{classros2__aruco_1_1transformations_1_1_arcball_ae0734f714ee6a0332096881bff86229b}{down}} (self, point)
+\item 
+def \mbox{\hyperlink{classros2__aruco_1_1transformations_1_1_arcball_aff5827b1c4593f70240b4b74021da909}{drag}} (self, point)
+\item 
+def \mbox{\hyperlink{classros2__aruco_1_1transformations_1_1_arcball_ad64e8f679b94a7240254ea860e837688}{next}} (self, acceleration=0.\+0)
+\item 
+def \mbox{\hyperlink{classros2__aruco_1_1transformations_1_1_arcball_aba4563cd4164a53b9e9046a8504f5d2f}{matrix}} (self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Virtual Trackball Control.
+
+>>> ball = Arcball()
+>>> ball = Arcball(initial=numpy.identity(4))
+>>> ball.place([320, 320], 320)
+>>> ball.down([500, 250])
+>>> ball.drag([475, 275])
+>>> R = ball.matrix()
+>>> numpy.allclose(numpy.sum(R), 3.90583455)
+True
+>>> ball = Arcball(initial=[0, 0, 0, 1])
+>>> ball.place([320, 320], 320)
+>>> ball.setaxes([1,1,0], [-1, 1, 0])
+>>> ball.setconstrain(True)
+>>> ball.down([400, 200])
+>>> ball.drag([200, 400])
+>>> R = ball.matrix()
+>>> numpy.allclose(numpy.sum(R), 0.2055924)
+True
+>>> ball.next()\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classros2__aruco_1_1transformations_1_1_arcball_ae7ef17f04bb29b1679506d9a1a05c93b}\label{classros2__aruco_1_1transformations_1_1_arcball_ae7ef17f04bb29b1679506d9a1a05c93b}} 
+\index{ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def ros2\+\_\+aruco.\+transformations.\+Arcball.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{initial = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initialize virtual trackball control.
+
+initial : quaternion or rotation matrix\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classros2__aruco_1_1transformations_1_1_arcball_ae0734f714ee6a0332096881bff86229b}\label{classros2__aruco_1_1transformations_1_1_arcball_ae0734f714ee6a0332096881bff86229b}} 
+\index{ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}!down@{down}}
+\index{down@{down}!ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}}
+\doxysubsubsection{\texorpdfstring{down()}{down()}}
+{\footnotesize\ttfamily def ros2\+\_\+aruco.\+transformations.\+Arcball.\+down (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{point }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set initial cursor window coordinates and pick constrain-axis.\end{DoxyVerb}
+ \mbox{\Hypertarget{classros2__aruco_1_1transformations_1_1_arcball_aff5827b1c4593f70240b4b74021da909}\label{classros2__aruco_1_1transformations_1_1_arcball_aff5827b1c4593f70240b4b74021da909}} 
+\index{ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}!drag@{drag}}
+\index{drag@{drag}!ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}}
+\doxysubsubsection{\texorpdfstring{drag()}{drag()}}
+{\footnotesize\ttfamily def ros2\+\_\+aruco.\+transformations.\+Arcball.\+drag (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{point }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Update current cursor window coordinates.\end{DoxyVerb}
+ \mbox{\Hypertarget{classros2__aruco_1_1transformations_1_1_arcball_afea9bf151a6a88ee2fbf05d9a267ea75}\label{classros2__aruco_1_1transformations_1_1_arcball_afea9bf151a6a88ee2fbf05d9a267ea75}} 
+\index{ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}!getconstrain@{getconstrain}}
+\index{getconstrain@{getconstrain}!ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}}
+\doxysubsubsection{\texorpdfstring{getconstrain()}{getconstrain()}}
+{\footnotesize\ttfamily def ros2\+\_\+aruco.\+transformations.\+Arcball.\+getconstrain (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return state of constrain to axis mode.\end{DoxyVerb}
+ \mbox{\Hypertarget{classros2__aruco_1_1transformations_1_1_arcball_aba4563cd4164a53b9e9046a8504f5d2f}\label{classros2__aruco_1_1transformations_1_1_arcball_aba4563cd4164a53b9e9046a8504f5d2f}} 
+\index{ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}!matrix@{matrix}}
+\index{matrix@{matrix}!ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}}
+\doxysubsubsection{\texorpdfstring{matrix()}{matrix()}}
+{\footnotesize\ttfamily def ros2\+\_\+aruco.\+transformations.\+Arcball.\+matrix (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return homogeneous rotation matrix.\end{DoxyVerb}
+ \mbox{\Hypertarget{classros2__aruco_1_1transformations_1_1_arcball_ad64e8f679b94a7240254ea860e837688}\label{classros2__aruco_1_1transformations_1_1_arcball_ad64e8f679b94a7240254ea860e837688}} 
+\index{ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}!next@{next}}
+\index{next@{next}!ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily def ros2\+\_\+aruco.\+transformations.\+Arcball.\+next (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{acceleration = {\ttfamily 0.0} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Continue rotation in direction of last drag.\end{DoxyVerb}
+ \mbox{\Hypertarget{classros2__aruco_1_1transformations_1_1_arcball_aba3a7dfdbfeb04c63e82c8fb4f415c7b}\label{classros2__aruco_1_1transformations_1_1_arcball_aba3a7dfdbfeb04c63e82c8fb4f415c7b}} 
+\index{ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}!place@{place}}
+\index{place@{place}!ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}}
+\doxysubsubsection{\texorpdfstring{place()}{place()}}
+{\footnotesize\ttfamily def ros2\+\_\+aruco.\+transformations.\+Arcball.\+place (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{center,  }\item[{}]{radius }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Place Arcball, e.g. when window size changes.
+
+center : sequence[2]
+    Window coordinates of trackball center.
+radius : float
+    Radius of trackball in window coordinates.\end{DoxyVerb}
+ \mbox{\Hypertarget{classros2__aruco_1_1transformations_1_1_arcball_a3e4e17a02dbe30e1d903232e269bb772}\label{classros2__aruco_1_1transformations_1_1_arcball_a3e4e17a02dbe30e1d903232e269bb772}} 
+\index{ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}!setaxes@{setaxes}}
+\index{setaxes@{setaxes}!ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}}
+\doxysubsubsection{\texorpdfstring{setaxes()}{setaxes()}}
+{\footnotesize\ttfamily def ros2\+\_\+aruco.\+transformations.\+Arcball.\+setaxes (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{$\ast$}]{axes }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set axes to constrain rotations.\end{DoxyVerb}
+ \mbox{\Hypertarget{classros2__aruco_1_1transformations_1_1_arcball_a6b04e1f90a7f05fdfe57becef71def53}\label{classros2__aruco_1_1transformations_1_1_arcball_a6b04e1f90a7f05fdfe57becef71def53}} 
+\index{ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}!setconstrain@{setconstrain}}
+\index{setconstrain@{setconstrain}!ros2\_aruco.transformations.Arcball@{ros2\_aruco.transformations.Arcball}}
+\doxysubsubsection{\texorpdfstring{setconstrain()}{setconstrain()}}
+{\footnotesize\ttfamily def ros2\+\_\+aruco.\+transformations.\+Arcball.\+setconstrain (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{constrain }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set state of constrain to axis mode.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ros2\+\_\+aruco/ros2\+\_\+aruco/ros2\+\_\+aruco/transformations.\+py\end{DoxyCompactItemize}

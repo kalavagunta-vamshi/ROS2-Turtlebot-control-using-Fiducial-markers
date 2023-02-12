@@ -1,0 +1,42 @@
+\hypertarget{namespaceros2__aruco_1_1aruco__node}{}\doxysection{ros2\+\_\+aruco.\+aruco\+\_\+node Namespace Reference}
+\label{namespaceros2__aruco_1_1aruco__node}\index{ros2\_aruco.aruco\_node@{ros2\_aruco.aruco\_node}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classros2__aruco_1_1aruco__node_1_1_aruco_node}{Aruco\+Node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceros2__aruco_1_1aruco__node_adcbf5e24e9a94a6f373abc903fc38cc4}\label{namespaceros2__aruco_1_1aruco__node_adcbf5e24e9a94a6f373abc903fc38cc4}} 
+def {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}This node locates Aruco AR markers in images and publishes their ids and poses.
+
+Subscriptions:
+   /camera/image_raw (sensor_msgs.msg.Image)
+   /camera/camera_info (sensor_msgs.msg.CameraInfo)
+   /camera/camera_info (sensor_msgs.msg.CameraInfo)
+
+Published Topics:
+/aruco_poses (geometry_msgs.msg.PoseArray)
+   Pose of all detected markers (suitable for rviz visualization)
+
+/aruco_markers (ros2_aruco_interfaces.msg.ArucoMarkers)
+   Provides an array of all poses along with the corresponding
+   marker ids.
+
+Parameters:
+marker_size - size of the markers in meters (default .0625)
+aruco_dictionary_id - dictionary that was used to generate markers
+                      (default DICT_5X5_250)
+image_topic - image topic to subscribe to (default /camera/image_raw)
+camera_info_topic - camera info topic to subscribe to
+                     (default /camera/camera_info)
+
+Author: Nathan Sprague
+Version: 10/26/2020\end{DoxyVerb}
+ 

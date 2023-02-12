@@ -23,3 +23,6 @@ Tasks for this project:
 
 The final output of the project looks like this:
 
+The connected tree as shown below using the package odom_updater which broadcasts robot's odom to world frame continuously:
+
+

@@ -40,6 +40,6 @@ Robot reaches final destination, gazebo scene:
 ![alt text](https://github.com/darshit-desai/ROS2-Turtlebot-control-using-Fiducial-markers/blob/main/img/arucoMarker2origin1Target.png)
 
 Contributors:
-[Darshit Desao](https://github.com/darshit-desai)
+[Darshit Desai](https://github.com/darshit-desai)
 [Vinay Krishna Bukka](https://github.com/vinay06vinay)
-[Vamshi Kalavagunta]
+, Vamshi Kalavagunta

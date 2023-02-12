@@ -1,0 +1,46 @@
+\hypertarget{odom__updater_8h}{}\doxysection{odom\+\_\+updater/include/odom\+\_\+updater/odom\+\_\+updater.h File Reference}
+\label{odom__updater_8h}\index{odom\_updater/include/odom\_updater/odom\_updater.h@{odom\_updater/include/odom\_updater/odom\_updater.h}}
+
+
+Frame Publisher Class is used to create a broadcaster between Robot\textquotesingle{}s odom frame and Robot\textquotesingle{}s base\+\_\+foot\+\_\+print frame. Subscription is done to robot odom frame so that the position of robot is broadcasted.  
+
+
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/msg/transform\+\_\+stamped.\+hpp$>$}\newline
+{\ttfamily \#include $<$rclcpp/rclcpp.\+hpp$>$}\newline
+{\ttfamily \#include $<$tf2/\+Linear\+Math/\+Quaternion.\+h$>$}\newline
+{\ttfamily \#include $<$tf2/\+Linear\+Math/\+Matrix3x3.\+h$>$}\newline
+{\ttfamily \#include $<$tf2\+\_\+ros/transform\+\_\+broadcaster.\+h$>$}\newline
+{\ttfamily \#include $<$nav\+\_\+msgs/msg/odometry.\+hpp$>$}\newline
+Include dependency graph for odom\+\_\+updater.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{odom__updater_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_frame_publisher}{Frame\+Publisher}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Frame Publisher Class is used to create a broadcaster between Robot\textquotesingle{}s odom frame and Robot\textquotesingle{}s base\+\_\+foot\+\_\+print frame. Subscription is done to robot odom frame so that the position of robot is broadcasted. 
+
+\begin{DoxyAuthor}{Author}
+Darshit Desai (\href{mailto:darshit@umd.edu}{\texttt{ darshit@umd.\+edu}}) , Vamshi Kalavagunta (\href{mailto:vamshik@umd.edu}{\texttt{ vamshik@umd.\+edu}}) , Vinay Bukka(\href{mailto:vinay06@umd.edu}{\texttt{ vinay06@umd.\+edu}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/12-\/15
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 
+\end{DoxyCopyright}

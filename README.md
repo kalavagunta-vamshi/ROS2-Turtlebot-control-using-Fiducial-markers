@@ -42,4 +42,4 @@ Robot reaches final destination, gazebo scene:
 Contributors:
 [Darshit Desai](https://github.com/darshit-desai)
 [Vinay Krishna Bukka](https://github.com/vinay06vinay)
-, Vamshi Kalavagunta
+[Vamshi Kalavagunta](https://github.com/kalavagunta-vamshi)
